@@ -1,0 +1,21 @@
+<table id="projects">
+     <thead>
+        <tr>
+          <th>ProjectName</th>
+          <th>UserName</th>
+          <th>CategoryName</th>
+        </tr>
+     </thead>
+     <tbody>
+      <% @projects.each do |project|%>
+        <% user= @users.find(project.user_id)%>
+        <% category= @categories.find(project.category_id)%>
+          <tr>
+            <td><%= project.name%></td>
+            <td><%= user.name%></td>
+            <td><%= category.name%></td>
+          </tr> 
+      <%end%>
+     </tbody>
+</table>
+
