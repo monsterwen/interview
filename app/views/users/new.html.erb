@@ -1,21 +1,24 @@
- <h1>This is a signup page</h1>
-	<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+ <h1 align="center">This is a signup page</h1>
+	<div align="center" class="row center">
+  <div class="col-md-4 col-md-offset-3">
+    <ul>
     <%= form_for(@user) do |f| %>
-      <%= f.label :name %>
+     <li> <%= f.label :name %> 
       <%= f.text_field :name %>
-
+     </li>
+     <li>
       <%= f.label :email %>
       <%= f.email_field :email %>
-
+      </li>
+      <li>
       <%= f.label :password %>
       <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      </li>
+      
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
+    </ul>
   </div>
 </div>
 

@@ -1,16 +1,21 @@
 class SessionsController < ApplicationController
+  
   def new
   end
-
-  def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      log_in user
-      redirect_to user
-    else
-      render 'new'
-    end
-  end
+  
+  def create  
+    @user = User.authenticate(params[:email], params[:password])  
+    if @user  
+      log_in(@user)
+      flash[:notice] = "Weclome" 
+      render 'welcome'
+    else  
+      flash[:notice] = "The login or password is not correct."  
+      redirect_to new_user_path  
+    end  
+  end  
+  
+  
 
   def destroy
     log_out
@@ -30,7 +35,6 @@ class SessionsController < ApplicationController
     @current_user = nil
   end
   
-
-
+  
 
 end

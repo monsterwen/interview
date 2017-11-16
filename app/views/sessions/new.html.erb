@@ -1,21 +1,9 @@
-<h1>This is a login page</h1>
-
-
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-      
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      
-
-      <%= f.submit "log in", class: "btn btn-primary" %>
-      <%= link_to "Log out", logout_path, method: :delete %>
-    <% end %>
-  </div>
-</div>
+<h1>Admin Login</h1>  
+<%= form_for(:session, url: login_path) do -%>  
+  <label for="name">username</label>  
+  <%= text_field_tag :name, params[:name] %>  
+  <label for="password">Password</label>  
+  <%= password_field_tag :password, params[:password] %>  
+    
+  <%= submit_tag "Login"%>  
+<% end %>  
