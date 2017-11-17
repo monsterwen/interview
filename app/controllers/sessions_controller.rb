@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   
   def create  
     @user = User.authenticate(params[:email], params[:password])  
-    if @user  
+    if @user 
+      flash[:success] = "You are successfully logged in!"  
       log_in(@user)
-      flash[:success] = "Weclome" 
       render 'welcome'
     else  
       flash[:notice] = "The login or password is not correct."  

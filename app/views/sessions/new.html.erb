@@ -1,7 +1,7 @@
 <h1>Admin Login</h1>  
-<%= form_for(:session, url: login_path) do -%>  
-  <label for="name">username</label>  
-  <%= text_field_tag :name, params[:name] %>  
+<%= form_for(:session, url: login_path) do %>  
+  <label for="email">username</label>  
+  <%= text_field_tag :email, params[:email] %>  
   <label for="password">Password</label>  
   <%= password_field_tag :password, params[:password] %>  
     

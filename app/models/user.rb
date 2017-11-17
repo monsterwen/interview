@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
   attr_accessor :password
   validates :name, :presence => true  
-
   validates :email, :presence => true  
 
     
@@ -18,11 +17,11 @@ class User < ApplicationRecord
   end  
   
   def self.authenticate(email, password)  
-  user = User.find_by_email(email)  
-  if user && Digest::MD5.hexdigest(password + user.salt) == user.hashed_password  
-    return user  
-  end  
-  false  
+    user = User.find_by_email(email)  
+    if user && Digest::MD5.hexdigest(password + user.salt) == user.hashed_password  
+      return user  
+    end  
+    false  
   end  
 
   private  
