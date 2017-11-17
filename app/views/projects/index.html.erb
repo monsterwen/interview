@@ -1,27 +1,40 @@
-<%= will_paginate @projects %>
+ <input type='hidden' id='current_page' />
+ <input type='hidden' id='show_per_page' />
 
-<table id="projects">
 
-     <thead>
-        <tr>
-          <th>ProjectName</th>
-          <th>UserName</th>
-          <th>CategoryName</th>
-        </tr>
-     </thead>
-     <tbody>
-
-      <% @projects.each do |project| %>
-       <% user= @users.find(project.user_id)%>
-       <% category= @categories.find(project.category_id)%>
+  <div class="container">
+    <table class="table">
+       <thead>
           <tr>
-            <td><%= project.name%></td>
-            <td><%= user.name%></td>
-            <td><%= category.name%></td>
-          </tr> 
-      <%end%>
-     </tbody>
-</table>
+            <th>ProjectName</th>
+            <th>UserName</th>
+            <th>CategoryName</th>
+          </tr>
+       </thead>
+       <tbody>
+         <% @projects.each do |project| %>
+           <% user= @users.find(project.user_id)%>
+           <% category= @categories.find(project.category_id)%>
+              <tr class="display">
+                <td><%= project.name%></td>
+                <td><%= user.name%></td>
+                <td><%= category.name%></td>
+              </tr> 
+         <%end%>
+       </tbody>
+    </table>
+    <br />
+  </div>
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a class="aaa">sort project title</a>
+    <a class="aaa">sort user name</a>
+    <a class="aaa">sort category</a>
+  </div>
+</div>
+  <div id='page_navigation'></div><br>
+  <div class="center"><%= link_to "back to signup", signup_url %></div>
 
 
 

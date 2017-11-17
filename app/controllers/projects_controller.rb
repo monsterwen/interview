@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
     end
     
     def index
-        @projects=Project.all.paginate(page: params[:page], per_page: 2)
+        @projects=Project.all
         
         @users=User.all
         @categories=Category.all
